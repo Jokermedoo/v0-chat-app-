@@ -5,75 +5,74 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #4b5563;
-  --card: #f8e1f4;
-  --card-foreground: #4b5563;
+  --foreground: #374151;
+  --card: #ffffff;
+  --card-foreground: #374151;
   --popover: #ffffff;
-  --popover-foreground: #4b5563;
-  /* Updated to pink/purple color scheme inspired by Lgana */
-  --primary: #d5006d;
+  --popover-foreground: #374151;
+  /* Red/Pink color scheme for Arabic voice chat app */
+  --primary: #dc2626;
   --primary-foreground: #ffffff;
-  --secondary: #a40068;
+  --secondary: #ef4444;
   --secondary-foreground: #ffffff;
-  --muted: #f8e1f4;
-  --muted-foreground: #4b5563;
-  --accent: #a40068;
+  --muted: #f9fafb;
+  --muted-foreground: #6b7280;
+  --accent: #dc2626;
   --accent-foreground: #ffffff;
-  --destructive: #ff4f6d;
+  --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #e0e0e0;
-  --input: #f8e1f4;
-  --ring: rgba(213, 0, 109, 0.5);
-  --chart-1: #d5006d;
-  --chart-2: #a40068;
-  --chart-3: #ff4f6d;
-  --chart-4: #f8e1f4;
-  --chart-5: #4b5563;
+  --border: #e5e7eb;
+  --input: #f9fafb;
+  --ring: rgba(220, 38, 38, 0.2);
+  --chart-1: #dc2626;
+  --chart-2: #ef4444;
+  --chart-3: #f87171;
+  --chart-4: #fca5a5;
+  --chart-5: #fecaca;
   --radius: 0.5rem;
-  --sidebar: #f8e1f4;
-  --sidebar-foreground: #4b5563;
-  --sidebar-primary: #d5006d;
+  --sidebar: #f9fafb;
+  --sidebar-foreground: #374151;
+  --sidebar-primary: #dc2626;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #a40068;
+  --sidebar-accent: #ef4444;
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #e0e0e0;
-  --sidebar-ring: rgba(213, 0, 109, 0.5);
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: rgba(220, 38, 38, 0.2);
 }
 
 .dark {
-  --background: #1f1b24;
-  --foreground: #ffffff;
-  --card: #2d1b3d;
-  --card-foreground: #ffffff;
-  --popover: #1f1b24;
-  --popover-foreground: #ffffff;
-  /* Updated dark mode colors to complement pink/purple theme */
-  --primary: #ff69b4;
-  --primary-foreground: #1f1b24;
-  --secondary: #c44569;
-  --secondary-foreground: #ffffff;
-  --muted: #2d1b3d;
-  --muted-foreground: #b8b8b8;
-  --accent: #c44569;
-  --accent-foreground: #ffffff;
-  --destructive: #ff6b9d;
-  --destructive-foreground: #ffffff;
-  --border: #3d2a4a;
-  --input: #2d1b3d;
-  --ring: rgba(255, 105, 180, 0.5);
-  --chart-1: #ff69b4;
-  --chart-2: #c44569;
-  --chart-3: #ff6b9d;
-  --chart-4: #2d1b3d;
-  --chart-5: #b8b8b8;
-  --sidebar: #2d1b3d;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #ff69b4;
-  --sidebar-primary-foreground: #1f1b24;
-  --sidebar-accent: #c44569;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #3d2a4a;
-  --sidebar-ring: rgba(255, 105, 180, 0.5);
+  --background: #111827;
+  --foreground: #f9fafb;
+  --card: #1f2937;
+  --card-foreground: #f9fafb;
+  --popover: #111827;
+  --popover-foreground: #f9fafb;
+  --primary: #ef4444;
+  --primary-foreground: #111827;
+  --secondary: #f87171;
+  --secondary-foreground: #111827;
+  --muted: #1f2937;
+  --muted-foreground: #9ca3af;
+  --accent: #ef4444;
+  --accent-foreground: #111827;
+  --destructive: #dc2626;
+  --destructive-foreground: #f9fafb;
+  --border: #374151;
+  --input: #1f2937;
+  --ring: rgba(239, 68, 68, 0.3);
+  --chart-1: #ef4444;
+  --chart-2: #f87171;
+  --chart-3: #fca5a5;
+  --chart-4: #1f2937;
+  --chart-5: #9ca3af;
+  --sidebar: #1f2937;
+  --sidebar-foreground: #f9fafb;
+  --sidebar-primary: #ef4444;
+  --sidebar-primary-foreground: #111827;
+  --sidebar-accent: #f87171;
+  --sidebar-accent-foreground: #111827;
+  --sidebar-border: #374151;
+  --sidebar-ring: rgba(239, 68, 68, 0.3);
 }
 
 @theme inline {
@@ -122,17 +121,117 @@
   * {
     @apply border-border outline-ring/50;
   }
+  
   body {
     @apply bg-background text-foreground;
+    /* Ensure proper Arabic font rendering */
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+  
+  /* Arabic font support */
   .font-arabic {
     font-family: var(--font-arabic), var(--font-sans), sans-serif;
+    direction: rtl;
+    text-align: right;
   }
-  /* Added gradient utilities for enhanced visual appeal */
+  
+  /* RTL Support for form elements */
+  .font-arabic input,
+  .font-arabic textarea,
+  .font-arabic select {
+    direction: rtl;
+    text-align: right;
+  }
+  
+  /* Enhanced visual utilities */
   .gradient-primary {
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   }
+  
   .gradient-card {
-    background: linear-gradient(135deg, var(--card) 0%, rgba(248, 225, 244, 0.7) 100%);
+    background: linear-gradient(135deg, var(--card) 0%, rgba(249, 250, 251, 0.8) 100%);
   }
+  
+  .text-shadow {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Animation for Arabic elements */
+  .animate-fade-in-right {
+    animation: fadeInRight 0.6s ease-out;
+  }
+  
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Arabic number styling */
+  .arabic-numerals {
+    font-variant-numeric: normal;
+  }
+  
+  /* Voice chat specific styles */
+  .voice-indicator {
+    position: relative;
+  }
+  
+  .voice-indicator::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    border: 2px solid white;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+  }
+}
+
+/* Scrollbar styling for Arabic interface */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
